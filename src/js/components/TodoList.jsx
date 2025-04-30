@@ -5,7 +5,14 @@ const TodoList = () => {
 	const [list, setList] = useState([]);
 	
 	return (
-		<form className="m-4" onSubmit={(e) => e.preventDefault()}>
+		<form className="m-4" 
+		onSubmit={(e) => {
+			e.preventDefault();
+			if (task.trim() === "") return;
+			setList([...list, task]);
+			setTask("");
+		}}
+		>
 			<h1 className="d-flex justify-content-center text-secondary">Todo List!</h1>
 			<div className="row">
 				<div>
@@ -13,9 +20,13 @@ const TodoList = () => {
 				</div>
 			</div>
 			<ul className="list-group">
-				<li className="list-group-item"></li>
+				{list.map((item, index) => (
+					<li key={index} className="list-group-item">
+						{item}
+					</li>
+				))}
 			</ul>
-			<button type="submit" className="btn btn-primary">Send Data</button>
+			<button type="submit" className="btn btn-primary m-2">Send Data</button>
 		</form>
 	);
 };
