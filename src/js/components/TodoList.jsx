@@ -3,14 +3,15 @@ import React, { useState } from "react";
 const TodoList = () => {
 	const [task, setTask] = useState("");
 	const [list, setList] = useState([]);
+	
 	const handleDelete = (indexToDelete) => {
 		const updatedList = list.filter((_, index) => index !== indexToDelete);
 		setList(updatedList);
 	}
 
 	return (
-		<div className="row d-flex justify-content-center">
-			<form className="m-4 col-4"
+		<div>
+			<form
 				onSubmit={(e) => {
 					e.preventDefault();
 					if (task.trim() === "") return;
@@ -18,19 +19,21 @@ const TodoList = () => {
 					setTask("");
 				}}
 			>
-				<h1 className="d-flex justify-content-center text-secondary">Todo List!</h1>
-				<div className="card my-personal-div">
+				<h1 className="d-flex justify-content-center">Todo List!</h1>
+				<div className="kris-card">
 					<input type="text" placeholder="What do you need to be done?" onChange={(e) => setTask(e.target.value)} />
 					<ul>
 						{list.map((item, index) => (
-							<li key={index} className="my-li">
-								{item} <button className="float-end kris-button" onClick={() => handleDelete(index)}>X</button>
+							<li key={index} className="kris-li">
+								{item} <button type="button" className="float-end kris-button" value={task} onClick={() => handleDelete(index)}>X</button>
 							</li>
 						))}
-						<li className="my-li">{list.length} item left</li>
+						<li className="kris-li">{list.length} item left</li>
 					</ul>
 				</div>
-				<button type="submit" className="btn m-2">Send Data</button>
+				<div className="d-flex justify-content-center">
+					<button type="submit" className="btn m-2 add-button">+</button>
+				</div>
 			</form>
 		</div>
 	);
