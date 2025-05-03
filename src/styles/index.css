@@ -68,11 +68,3 @@ ul > li:last-child {
     padding-left: 1rem;
     border-top: 1px solid #e6e6e6;
 }
-.add-button {
-    background-color: black;
-    color: white;
-}
-.add-button:hover {
-    background: url('https://i.pinimg.com/originals/27/00/d6/2700d6f5505c41ec96ed10798d9f86ac.gif');
-    color: white;
-}

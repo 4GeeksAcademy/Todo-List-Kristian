@@ -21,7 +21,7 @@ const TodoList = () => {
 			>
 				<h1 className="d-flex justify-content-center">Todo List!</h1>
 				<div className="kris-card">
-					<input type="text" placeholder="What do you need to be done?" onChange={(e) => setTask(e.target.value)} />
+					<input type="text" placeholder="What do you need to be done?" value={task} onChange={(e) => setTask(e.target.value)} />
 					<ul>
 						{list.map((item, index) => (
 							<li key={index} className="kris-li">
@@ -30,9 +30,6 @@ const TodoList = () => {
 						))}
 						<li className="kris-li">{list.length} item left</li>
 					</ul>
-				</div>
-				<div className="d-flex justify-content-center">
-					<button type="submit" className="btn m-2 add-button">+</button>
 				</div>
 			</form>
 		</div>
